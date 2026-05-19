@@ -20,7 +20,6 @@
     --text: #f0ede4;
     --muted: #8a8778;
     --accent: #c8a96e;
-    --accent2: #e8c98a;
     --serif: 'DM Serif Display', Georgia, serif;
     --sans: 'DM Sans', system-ui, sans-serif;
   }
@@ -36,12 +35,11 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; justify-content: space-between; align-items: center;
     padding: 1.25rem 3rem;
-    background: rgba(13,13,11,0.85);
+    background: rgba(13,13,11,0.88);
     backdrop-filter: blur(12px);
     border-bottom: 0.5px solid var(--border);
   }
@@ -50,7 +48,6 @@
     font-size: 1.1rem;
     color: var(--accent);
     text-decoration: none;
-    letter-spacing: 0.02em;
   }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a {
@@ -62,23 +59,15 @@
     transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--text); }
-
-  /* HAMBURGER MOBILE */
   .nav-toggle {
     display: none;
     flex-direction: column; gap: 5px; cursor: pointer;
     background: none; border: none; padding: 4px;
   }
-  .nav-toggle span {
-    display: block; width: 22px; height: 1.5px;
-    background: var(--muted); transition: background 0.2s;
-  }
-  .nav-toggle:hover span { background: var(--text); }
+  .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--muted); }
 
-  /* SECTIONS */
   section { padding: 6rem 3rem; max-width: 900px; margin: 0 auto; }
 
-  /* HERO */
   #hero {
     min-height: 100vh;
     display: flex; flex-direction: column; justify-content: center;
@@ -95,22 +84,17 @@
     display: flex; align-items: center; gap: 0.75rem;
   }
   .hero-eyebrow::before {
-    content: '';
-    display: inline-block; width: 2rem; height: 1px;
-    background: var(--accent);
+    content: ''; display: inline-block;
+    width: 2rem; height: 1px; background: var(--accent);
   }
   h1.hero-title {
     font-family: var(--serif);
-    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-size: clamp(3rem, 7.5vw, 5.5rem);
     line-height: 1.05;
-    letter-spacing: -0.01em;
     color: var(--text);
     margin-bottom: 1.5rem;
   }
-  h1.hero-title em {
-    font-style: italic;
-    color: var(--accent);
-  }
+  h1.hero-title em { font-style: italic; color: var(--accent); }
   .hero-sub {
     font-size: 1.1rem;
     color: var(--muted);
@@ -120,7 +104,7 @@
     font-weight: 300;
   }
   .hero-cta {
-    display: inline-flex; align-items: center; gap: 0.6rem;
+    display: inline-flex; align-items: center;
     padding: 0.85rem 2rem;
     background: transparent;
     border: 1px solid var(--accent);
@@ -130,21 +114,21 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     transition: background 0.2s, color 0.2s;
-    cursor: pointer;
+    width: fit-content;
   }
   .hero-cta:hover { background: var(--accent); color: var(--bg); }
   .hero-deco {
-    position: absolute; right: -4rem; top: 50%;
+    position: absolute; right: 0; top: 50%;
     transform: translateY(-50%);
     font-family: var(--serif);
-    font-size: 22rem;
+    font-size: clamp(10rem, 20vw, 20rem);
     color: rgba(200,169,110,0.04);
-    pointer-events: none;
-    user-select: none;
-    line-height: 1;
+    pointer-events: none; user-select: none;
+    line-height: 1; overflow: hidden;
+    white-space: nowrap;
+    clip-path: inset(0 0 0 0);
   }
 
-  /* SECTION HEADERS */
   .section-label {
     font-size: 0.75rem;
     letter-spacing: 0.18em;
@@ -154,9 +138,8 @@
     display: flex; align-items: center; gap: 0.75rem;
   }
   .section-label::before {
-    content: '';
-    display: inline-block; width: 1.5rem; height: 1px;
-    background: var(--accent);
+    content: ''; display: inline-block;
+    width: 1.5rem; height: 1px; background: var(--accent);
   }
   h2 {
     font-family: var(--serif);
@@ -166,153 +149,127 @@
     margin-bottom: 3rem;
   }
 
-  /* ABOUT */
   .about-grid {
     display: grid;
     grid-template-columns: 1fr 1px 1fr;
-    gap: 3rem;
-    align-items: start;
+    gap: 3rem; align-items: start;
   }
   .about-divider { background: var(--border); }
   .about-text { color: var(--muted); font-weight: 300; line-height: 1.8; }
   .about-text strong { color: var(--text); font-weight: 400; }
-  .about-stat { display: flex; flex-direction: column; gap: 1.5rem; }
-  .stat-num {
-    font-family: var(--serif);
-    font-size: 2.5rem;
-    color: var(--accent);
-    line-height: 1;
-    margin-bottom: 0.25rem;
-  }
-  .stat-label {
-    font-size: 0.8rem;
-    color: var(--muted);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
+  .about-highlights { display: flex; flex-direction: column; gap: 1.5rem; }
+  .highlight-item { border-left: 1px solid var(--accent); padding-left: 1rem; }
+  .highlight-title { color: var(--text); font-size: 0.95rem; margin-bottom: 0.2rem; }
+  .highlight-sub { color: var(--muted); font-size: 0.82rem; font-weight: 300; }
 
-  /* PROJECTS */
   .projects-list { display: flex; flex-direction: column; }
   .project-item {
     display: grid;
-    grid-template-columns: 3rem 1fr auto;
-    align-items: start;
+    grid-template-columns: 3rem 52px 1fr auto;
+    align-items: center;
     gap: 1.5rem;
-    padding: 2rem 0;
+    padding: 1.75rem 0;
     border-bottom: 0.5px solid var(--border);
     text-decoration: none;
     color: inherit;
-    transition: background 0.2s;
-    cursor: pointer;
+    transition: opacity 0.2s;
   }
   .project-item:first-child { border-top: 0.5px solid var(--border); }
   .project-num {
     font-family: var(--serif);
     font-size: 0.85rem;
     color: var(--muted);
-    padding-top: 0.2rem;
     font-style: italic;
+    align-self: start;
+    padding-top: 0.2rem;
   }
+  .project-logo-wrap {
+    width: 52px; height: 52px;
+    border-radius: 10px;
+    background: var(--bg3);
+    border: 0.5px solid var(--border2);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; flex-shrink: 0;
+  }
+  .project-logo-wrap img { width: 38px; height: 38px; object-fit: contain; }
   .project-name {
     font-family: var(--serif);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: var(--text);
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.35rem;
     transition: color 0.2s;
   }
   .project-item:hover .project-name { color: var(--accent); }
   .project-desc {
-    font-size: 0.9rem;
-    color: var(--muted);
-    max-width: 500px;
-    line-height: 1.6;
-    font-weight: 300;
+    font-size: 0.88rem; color: var(--muted);
+    line-height: 1.6; font-weight: 300; margin-bottom: 0.65rem;
   }
-  .project-tags { display: flex; gap: 0.5rem; margin-top: 0.75rem; flex-wrap: wrap; }
+  .project-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
   .tag {
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 0.2rem 0.6rem;
-    border: 0.5px solid var(--border2);
-    color: var(--muted);
+    font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.18rem 0.55rem;
+    border: 0.5px solid var(--border2); color: var(--muted);
   }
   .project-arrow {
-    font-size: 1.2rem;
-    color: var(--muted);
+    font-size: 1.1rem; color: var(--muted);
     transition: color 0.2s, transform 0.2s;
-    padding-top: 0.3rem;
+    align-self: center; flex-shrink: 0;
   }
-  .project-item:hover .project-arrow { color: var(--accent); transform: translate(4px,-4px); }
+  .project-item:hover .project-arrow { color: var(--accent); transform: translate(3px,-3px); }
 
-  /* SERVICES */
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1px;
     background: var(--border);
     border: 0.5px solid var(--border);
   }
   .service-card {
     background: var(--bg);
-    padding: 2rem 1.75rem;
+    padding: 1.75rem 1.5rem;
     transition: background 0.2s;
   }
   .service-card:hover { background: var(--bg3); }
-  .service-icon { font-size: 1.6rem; color: var(--accent); margin-bottom: 1rem; }
+  .service-icon { font-size: 1.4rem; color: var(--accent); margin-bottom: 0.85rem; }
   .service-title {
     font-family: var(--serif);
-    font-size: 1.2rem;
-    color: var(--text);
-    margin-bottom: 0.6rem;
+    font-size: 1.1rem; color: var(--text); margin-bottom: 0.5rem;
   }
-  .service-desc {
-    font-size: 0.85rem;
-    color: var(--muted);
-    line-height: 1.7;
-    font-weight: 300;
-  }
+  .service-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.65; font-weight: 300; }
 
-  /* CONTACT */
   .contact-inner {
     border: 0.5px solid var(--border);
     padding: 3.5rem;
     display: grid;
     grid-template-columns: 1fr 1px 1fr;
-    gap: 3rem;
-    align-items: center;
+    gap: 3rem; align-items: center;
   }
-  .contact-divider { background: var(--border); }
+  .contact-divider { background: var(--border); align-self: stretch; }
   .contact-tagline {
     font-family: var(--serif);
-    font-size: 1.8rem;
-    line-height: 1.2;
-    color: var(--text);
-    margin-bottom: 0.75rem;
+    font-size: 1.8rem; line-height: 1.2;
+    color: var(--text); margin-bottom: 0.75rem;
   }
   .contact-tagline em { font-style: italic; color: var(--accent); }
   .contact-sub { font-size: 0.9rem; color: var(--muted); font-weight: 300; }
-  .contact-links { display: flex; flex-direction: column; gap: 0; }
+  .contact-links { display: flex; flex-direction: column; }
   .contact-link {
-    display: flex; align-items: center; gap: 0.75rem;
-    text-decoration: none;
-    color: var(--muted);
-    font-size: 0.9rem;
+    display: flex; align-items: center;
+    text-decoration: none; color: var(--muted);
     transition: color 0.2s;
-    padding: 0.85rem 0;
+    padding: 0.9rem 0;
     border-bottom: 0.5px solid var(--border);
   }
   .contact-link:last-child { border-bottom: none; }
   .contact-link:hover { color: var(--accent); }
   .contact-link-label {
-    font-size: 0.7rem; letter-spacing: 0.1em;
+    font-size: 0.68rem; letter-spacing: 0.1em;
     text-transform: uppercase; color: var(--muted);
-    display: block; margin-bottom: 0.1rem;
+    display: block; margin-bottom: 0.15rem;
   }
-  .contact-link-val { color: var(--text); font-size: 0.95rem; }
+  .contact-link-val { color: var(--text); font-size: 0.93rem; }
   .contact-link:hover .contact-link-val { color: var(--accent); }
 
-  /* FOOTER */
   footer {
     border-top: 0.5px solid var(--border);
     padding: 2rem 3rem;
@@ -322,9 +279,8 @@
   .footer-name { font-family: var(--serif); font-size: 0.9rem; color: var(--muted); font-style: italic; }
   .footer-copy { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.05em; }
 
-  /* ANIMATIONS */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
+    from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
   .fade-up { animation: fadeUp 0.7s ease forwards; opacity: 0; }
@@ -332,20 +288,28 @@
   .delay-2 { animation-delay: 0.3s; }
   .delay-3 { animation-delay: 0.45s; }
 
-  /* RESPONSIVE */
   @media (max-width: 700px) {
     nav { padding: 1rem 1.5rem; }
-    .nav-links { display: none; flex-direction: column; gap: 1.2rem; position: absolute; top: 100%; left: 0; right: 0; background: rgba(13,13,11,0.97); padding: 1.5rem; border-bottom: 0.5px solid var(--border); }
+    .nav-links {
+      display: none; flex-direction: column; gap: 1.2rem;
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: rgba(13,13,11,0.97);
+      padding: 1.5rem; border-bottom: 0.5px solid var(--border);
+    }
     .nav-links.open { display: flex; }
     .nav-toggle { display: flex; }
     section { padding: 4rem 1.5rem; }
     .about-grid { grid-template-columns: 1fr; }
     .about-divider { display: none; }
+    .project-item { grid-template-columns: 2rem 44px 1fr auto; gap: 0.75rem; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
     .contact-inner { grid-template-columns: 1fr; padding: 2rem; }
     .contact-divider { display: none; }
-    .project-item { grid-template-columns: 2.5rem 1fr auto; gap: 0.75rem; }
     footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
-    .hero-deco { font-size: 12rem; right: -2rem; }
+    .hero-deco { font-size: 8rem; }
+  }
+  @media (max-width: 420px) {
+    .services-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -365,11 +329,9 @@
 </nav>
 
 <section id="hero">
-  <div class="hero-deco">N</div>
+  <div class="hero-deco" aria-hidden="true">N</div>
   <div class="hero-eyebrow fade-up">Desarrollo web freelance</div>
-  <h1 class="hero-title fade-up delay-1">
-    Nazareno<br><em>Carreto</em>
-  </h1>
+  <h1 class="hero-title fade-up delay-1">Nazareno<br><em>Carreto</em></h1>
   <p class="hero-sub fade-up delay-2">
     Diseño y desarrollo sitios web a medida: prolijos, funcionales y con identidad propia. Para empresas, marcas personales y emprendimientos.
   </p>
@@ -378,25 +340,25 @@
 
 <section id="sobre-mi">
   <div class="section-label">Sobre mí</div>
-  <h2>Trabajo con criterio,<br>no con plantillas.</h2>
+  <h2>El sitio que<br>tu negocio necesita.</h2>
   <div class="about-grid">
     <div class="about-text">
       <p style="margin-bottom:1.2rem;">Soy Nazareno, desarrollador web freelance con base en el Gran Buenos Aires. Me especializo en sitios para <strong>empresas, emprendedores y marcas</strong> que necesitan presencia digital bien hecha, sin pagar precios de agencia.</p>
-      <p>Cada proyecto lo pienso desde la identidad del cliente: el objetivo no es que el sitio se vea genérico, sino que <strong>represente lo que esa marca realmente es</strong>.</p>
+      <p>Trabajo en función de lo que cada cliente necesita: desde el diseño hasta el contenido, el objetivo es que el sitio <strong>encaje con lo que el negocio es y comunica</strong>.</p>
     </div>
     <div class="about-divider"></div>
-    <div class="about-stat">
-      <div class="stat-item">
-        <div class="stat-num">4</div>
-        <div class="stat-label">Proyectos completados</div>
+    <div class="about-highlights">
+      <div class="highlight-item">
+        <div class="highlight-title">Diseño a medida</div>
+        <div class="highlight-sub">Sin plantillas genéricas. Cada proyecto parte de la identidad del cliente.</div>
       </div>
-      <div class="stat-item">
-        <div class="stat-num">HTML · CSS · JS</div>
-        <div class="stat-label">Stack principal</div>
+      <div class="highlight-item">
+        <div class="highlight-title">HTML · CSS · JavaScript</div>
+        <div class="highlight-sub">Stack liviano, rápido y fácil de mantener. Sin dependencias innecesarias.</div>
       </div>
-      <div class="stat-item">
-        <div class="stat-num">GBA</div>
-        <div class="stat-label">Buenos Aires, Argentina</div>
+      <div class="highlight-item">
+        <div class="highlight-title">Entrega lista para usar</div>
+        <div class="highlight-sub">El sitio sale publicado y funcional, con dominio o en GitHub Pages.</div>
       </div>
     </div>
   </div>
@@ -409,13 +371,14 @@
 
     <a class="project-item" href="https://luzzzen.com.ar" target="_blank" rel="noopener">
       <div class="project-num">01</div>
+      <div class="project-logo-wrap">
+        <img src="img/logo-luzzzen.png" alt="Luzzzen Cards">
+      </div>
       <div class="project-info">
         <div class="project-name">Luzzzen Cards</div>
         <div class="project-desc">Catálogo de cartas coleccionables japonesas y chinas con stock actualizable. Los productos llevan directo a WhatsApp para cerrar la venta, sin intermediarios ni plataformas de pago externas.</div>
         <div class="project-tags">
-          <span class="tag">E-commerce</span>
-          <span class="tag">Catálogo</span>
-          <span class="tag">WhatsApp</span>
+          <span class="tag">E-commerce</span><span class="tag">Catálogo</span><span class="tag">WhatsApp</span>
         </div>
       </div>
       <div class="project-arrow">↗</div>
@@ -423,13 +386,14 @@
 
     <a class="project-item" href="https://luzzzen.github.io/dinter/index.html" target="_blank" rel="noopener">
       <div class="project-num">02</div>
+      <div class="project-logo-wrap">
+        <img src="img/logo-dinter.png" alt="Dinter">
+      </div>
       <div class="project-info">
         <div class="project-name">Dinter</div>
         <div class="project-desc">Sitio institucional para una empresa manufacturera argentina con más de 30 años de trayectoria en instrumentación de medición y control. Catálogo de productos completo con páginas de detalle individuales.</div>
         <div class="project-tags">
-          <span class="tag">Institucional</span>
-          <span class="tag">Catálogo</span>
-          <span class="tag">Industria</span>
+          <span class="tag">Institucional</span><span class="tag">Catálogo</span><span class="tag">Industria</span>
         </div>
       </div>
       <div class="project-arrow">↗</div>
@@ -437,13 +401,14 @@
 
     <a class="project-item" href="https://luzzzen.github.io/mystic-sunlight/index.html" target="_blank" rel="noopener">
       <div class="project-num">03</div>
+      <div class="project-logo-wrap">
+        <img src="img/logo-mystic.png" alt="Mystic Sunlight">
+      </div>
       <div class="project-info">
         <div class="project-name">Mystic Sunlight</div>
         <div class="project-desc">Sitio para un emprendimiento de servicios de tarot: sesiones, carta natal y consultas personalizadas. Próximamente incorpora una tienda con el mismo sistema de catálogo y venta por WhatsApp.</div>
         <div class="project-tags">
-          <span class="tag">Emprendimiento</span>
-          <span class="tag">Servicios</span>
-          <span class="tag">Tienda próxima</span>
+          <span class="tag">Emprendimiento</span><span class="tag">Servicios</span><span class="tag">Tienda próxima</span>
         </div>
       </div>
       <div class="project-arrow">↗</div>
@@ -451,13 +416,14 @@
 
     <a class="project-item" href="https://luzzzen.github.io/el-asesino-de-villa-matanza/index.html" target="_blank" rel="noopener">
       <div class="project-num">04</div>
+      <div class="project-logo-wrap">
+        <img src="img/logo-asesino.png" alt="El Asesino de Villa Matanza">
+      </div>
       <div class="project-info">
         <div class="project-name">El Asesino de Villa Matanza</div>
         <div class="project-desc">Juego de deducción social tipo party para 5 a 12 jugadores desde un celular compartido. Lógica de roles propia inspirada en Mafia/Pueblo, con fases de día y noche y una estética porteña.</div>
         <div class="project-tags">
-          <span class="tag">Juego</span>
-          <span class="tag">Party game</span>
-          <span class="tag">Mobile</span>
+          <span class="tag">Juego</span><span class="tag">Party game</span><span class="tag">Mobile</span>
         </div>
       </div>
       <div class="project-arrow">↗</div>
@@ -487,8 +453,18 @@
     </div>
     <div class="service-card">
       <div class="service-icon">○</div>
-      <div class="service-title">Mantenimiento y actualización</div>
-      <div class="service-desc">Cambios de contenido, productos, precios o secciones en sitios existentes. Servicio mensual o por demanda.</div>
+      <div class="service-title">Mantenimiento y actualizaciones</div>
+      <div class="service-desc">Cambios de contenido, productos, precios o secciones en sitios existentes. Por demanda o con servicio mensual.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">△</div>
+      <div class="service-title">Landing page</div>
+      <div class="service-desc">Página de una sola sección para campañas, lanzamientos o promociones. Rápida de armar y fácil de compartir.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">□</div>
+      <div class="service-title">Dominio y publicación</div>
+      <div class="service-desc">Gestión del dominio, hosting y puesta en línea del sitio. El cliente recibe todo listo para usar desde el primer día.</div>
     </div>
   </div>
 </section>
@@ -512,12 +488,6 @@
         <div>
           <span class="contact-link-label">WhatsApp</span>
           <span class="contact-link-val">+54 9 11 2560 8635</span>
-        </div>
-      </a>
-      <a class="contact-link" href="https://github.com/luzzzen" target="_blank" rel="noopener">
-        <div>
-          <span class="contact-link-label">GitHub</span>
-          <span class="contact-link-val">github.com/luzzzen</span>
         </div>
       </a>
     </div>
