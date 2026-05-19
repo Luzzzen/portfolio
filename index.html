@@ -166,24 +166,22 @@
 
   .projects-list { display: flex; flex-direction: column; }
   .project-item {
+    display: flex; flex-direction: column; gap: 0.6rem;
+    padding: 1.75rem 0;
+    border-bottom: 0.5px solid var(--border);
+    text-decoration: none; color: inherit;
+  }
+  .project-item:first-child { border-top: 0.5px solid var(--border); }
+  .project-item-header {
     display: grid;
     grid-template-columns: 3rem 52px 1fr auto;
     align-items: center;
-    gap: 1.5rem;
-    padding: 1.75rem 0;
-    border-bottom: 0.5px solid var(--border);
-    text-decoration: none;
-    color: inherit;
-    transition: opacity 0.2s;
+    gap: 1.25rem;
   }
-  .project-item:first-child { border-top: 0.5px solid var(--border); }
   .project-num {
     font-family: var(--serif);
-    font-size: 0.85rem;
-    color: var(--muted);
-    font-style: italic;
-    align-self: start;
-    padding-top: 0.2rem;
+    font-size: 0.85rem; color: var(--muted);
+    font-style: italic; flex-shrink: 0;
   }
   .project-logo-wrap {
     width: 52px; height: 52px;
@@ -196,17 +194,19 @@
   .project-logo-wrap img { width: 38px; height: 38px; object-fit: contain; }
   .project-name {
     font-family: var(--serif);
-    font-size: 1.4rem;
-    color: var(--text);
-    margin-bottom: 0.35rem;
-    transition: color 0.2s;
+    font-size: 1.4rem; color: var(--text);
+    transition: color 0.2s; line-height: 1.2;
   }
   .project-item:hover .project-name { color: var(--accent); }
   .project-desc {
     font-size: 0.88rem; color: var(--muted);
-    line-height: 1.6; font-weight: 300; margin-bottom: 0.65rem;
+    line-height: 1.6; font-weight: 300;
+    padding-left: calc(3rem + 52px + 2.5rem);
   }
-  .project-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .project-tags {
+    display: flex; gap: 0.4rem; flex-wrap: wrap;
+    padding-left: calc(3rem + 52px + 2.5rem);
+  }
   .tag {
     font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
     padding: 0.18rem 0.55rem;
@@ -215,7 +215,7 @@
   .project-arrow {
     font-size: 1.1rem; color: var(--muted);
     transition: color 0.2s, transform 0.2s;
-    align-self: center; flex-shrink: 0;
+    flex-shrink: 0;
   }
   .project-item:hover .project-arrow { color: var(--accent); transform: translate(3px,-3px); }
 
@@ -300,18 +300,25 @@
     }
     .nav-links.open { display: flex; }
     .nav-toggle { display: flex; }
-    section { padding: 4rem 1.5rem; }
-    .about-grid { grid-template-columns: 1fr; }
+    section { padding: 3.5rem 1.25rem; }
+    .hero-deco { display: none; }
+    #hero { min-height: 100svh; padding-top: 6rem; padding-bottom: 2rem; justify-content: flex-start; }
+    h1.hero-title { font-size: clamp(2.6rem, 12vw, 4rem); }
+    .hero-sub { font-size: 1rem; margin-bottom: 2rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
     .about-divider { display: none; }
-    .project-item { grid-template-columns: 2rem 44px 1fr auto; gap: 0.75rem; }
-    .services-grid { grid-template-columns: 1fr 1fr; }
-    .contact-inner { grid-template-columns: 1fr; padding: 2rem; }
-    .contact-divider { display: none; }
-    footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
-    .hero-deco { font-size: 8rem; }
-  }
-  @media (max-width: 420px) {
+    .about-highlights { border-top: 0.5px solid var(--border); padding-top: 2rem; gap: 1.25rem; }
+    .project-item { display: flex; flex-direction: column; gap: 0.65rem; padding: 1.5rem 0; }
+    .project-item-header { grid-template-columns: 2rem 44px 1fr auto; gap: 0.75rem; }
+    .project-name { font-size: 1.2rem; }
+    .project-desc { padding-left: 0; font-size: 0.85rem; }
+    .project-tags { padding-left: 0; }
     .services-grid { grid-template-columns: 1fr; }
+    .service-card { padding: 1.5rem 1.25rem; }
+    .contact-inner { grid-template-columns: 1fr; padding: 1.75rem 1.5rem; gap: 1.75rem; }
+    .contact-divider { display: none; }
+    .contact-tagline { font-size: 1.5rem; }
+    footer { padding: 1.5rem; flex-direction: column; gap: 0.35rem; text-align: center; }
   }
 </style>
 </head>
@@ -345,7 +352,7 @@
   <h2>El sitio que<br>tu negocio necesita.</h2>
   <div class="about-grid">
     <div class="about-text">
-      <p style="margin-bottom:1.2rem;">Soy Nazareno, desarrollador web freelance con base en Buenos Aires. Me especializo en sitios para <strong>empresas, emprendedores y marcas</strong> que necesitan presencia digital bien hecha, sin pagar precios de agencia.</p>
+      <p style="margin-bottom:1.2rem;">Soy Nazareno, desarrollador web freelance con base en el Gran Buenos Aires. Me especializo en sitios para <strong>empresas, emprendedores y marcas</strong> que necesitan presencia digital bien hecha, sin pagar precios de agencia.</p>
       <p>Trabajo en función de lo que cada cliente necesita: desde el diseño hasta el contenido, el objetivo es que el sitio <strong>encaje con lo que el negocio es y comunica</strong>.</p>
     </div>
     <div class="about-divider"></div>
@@ -360,7 +367,7 @@
       </div>
       <div class="highlight-item">
         <div class="highlight-title">Entrega lista para usar</div>
-        <div class="highlight-sub">El sitio sale publicado y funcional, con la posibilidad de agregar un dominio personalizado.</div>
+        <div class="highlight-sub">El sitio sale publicado y funcional, con dominio o en GitHub Pages.</div>
       </div>
     </div>
   </div>
@@ -372,63 +379,63 @@
   <div class="projects-list">
 
     <a class="project-item" href="https://luzzzen.com.ar" target="_blank" rel="noopener">
-      <div class="project-num">01</div>
-      <div class="project-logo-wrap">
-        <img src="img/logo-luzzzen.png" alt="Luzzzen Cards">
-      </div>
-      <div class="project-info">
-        <div class="project-name">Luzzzen Cards</div>
-        <div class="project-desc">Catálogo de cartas coleccionables con stock actualizable. Los productos llevan directo a WhatsApp para cerrar la venta, sin intermediarios ni plataformas de pago externas.</div>
-        <div class="project-tags">
-          <span class="tag">E-commerce</span><span class="tag">Catálogo</span><span class="tag">WhatsApp</span>
+      <div class="project-item-header">
+        <div class="project-num">01</div>
+        <div class="project-logo-wrap">
+          <img src="img/logo-luzzzen.png" alt="Luzzzen Cards">
         </div>
+        <div class="project-name">Luzzzen Cards</div>
+        <div class="project-arrow">↗</div>
       </div>
-      <div class="project-arrow">↗</div>
+      <div class="project-desc">Catálogo de cartas coleccionables japonesas y chinas con stock actualizable. Los productos llevan directo a WhatsApp para cerrar la venta, sin intermediarios ni plataformas de pago externas.</div>
+      <div class="project-tags">
+        <span class="tag">E-commerce</span><span class="tag">Catálogo</span><span class="tag">WhatsApp</span>
+      </div>
     </a>
 
     <a class="project-item" href="https://luzzzen.github.io/dinter/index.html" target="_blank" rel="noopener">
-      <div class="project-num">02</div>
-      <div class="project-logo-wrap">
-        <img src="img/logo-dinter.png" alt="Dinter">
-      </div>
-      <div class="project-info">
-        <div class="project-name">Dinter</div>
-        <div class="project-desc">Sitio institucional para una empresa manufacturera argentina con más de 30 años de trayectoria en instrumentación de medición y control. Catálogo de productos completo con páginas de detalle individuales.</div>
-        <div class="project-tags">
-          <span class="tag">Institucional</span><span class="tag">Catálogo</span><span class="tag">Industria</span>
+      <div class="project-item-header">
+        <div class="project-num">02</div>
+        <div class="project-logo-wrap">
+          <img src="img/logo-dinter.png" alt="Dinter">
         </div>
+        <div class="project-name">Dinter</div>
+        <div class="project-arrow">↗</div>
       </div>
-      <div class="project-arrow">↗</div>
+      <div class="project-desc">Sitio institucional para una empresa manufacturera argentina con más de 30 años de trayectoria en instrumentación de medición y control. Catálogo de productos completo con páginas de detalle individuales.</div>
+      <div class="project-tags">
+        <span class="tag">Institucional</span><span class="tag">Catálogo</span><span class="tag">Industria</span>
+      </div>
     </a>
 
     <a class="project-item" href="https://luzzzen.github.io/mystic-sunlight/index.html" target="_blank" rel="noopener">
-      <div class="project-num">03</div>
-      <div class="project-logo-wrap">
-        <img src="img/logo-mystic.png" alt="Mystic Sunlight">
-      </div>
-      <div class="project-info">
-        <div class="project-name">Mystic Sunlight</div>
-        <div class="project-desc">Sitio para un emprendimiento de servicios de tarot: sesiones, oráculos y consultas personalizadas. Con espacio para ampliar, ya que próximamente incorporará una tienda con el mismo sistema de catálogo y venta por WhatsApp que el de Luzzzen Cards.</div>
-        <div class="project-tags">
-          <span class="tag">Emprendimiento</span><span class="tag">Servicios</span><span class="tag">Tienda próxima</span>
+      <div class="project-item-header">
+        <div class="project-num">03</div>
+        <div class="project-logo-wrap">
+          <img src="img/logo-mystic.png" alt="Mystic Sunlight">
         </div>
+        <div class="project-name">Mystic Sunlight</div>
+        <div class="project-arrow">↗</div>
       </div>
-      <div class="project-arrow">↗</div>
+      <div class="project-desc">Sitio para un emprendimiento de servicios de tarot: sesiones, carta natal y consultas personalizadas. Próximamente incorpora una tienda con el mismo sistema de catálogo y venta por WhatsApp.</div>
+      <div class="project-tags">
+        <span class="tag">Emprendimiento</span><span class="tag">Servicios</span><span class="tag">Tienda próxima</span>
+      </div>
     </a>
 
     <a class="project-item" href="https://luzzzen.github.io/el-asesino-de-villa-matanza/index.html" target="_blank" rel="noopener">
-      <div class="project-num">04</div>
-      <div class="project-logo-wrap">
-        <img src="img/logo-asesino.png" alt="El Asesino de Villa Matanza">
-      </div>
-      <div class="project-info">
-        <div class="project-name">El Asesino de Villa Matanza</div>
-        <div class="project-desc">Juego de deducción social tipo party para 5 a 12 jugadores desde un celular compartido. Lógica de roles propia inspirada en Mafia/Pueblo, con fases de día y noche y estética oscura.</div>
-        <div class="project-tags">
-          <span class="tag">Juego</span><span class="tag">Party game</span><span class="tag">Mobile</span>
+      <div class="project-item-header">
+        <div class="project-num">04</div>
+        <div class="project-logo-wrap">
+          <img src="img/logo-asesino.png" alt="El Asesino de Villa Matanza">
         </div>
+        <div class="project-name">El Asesino de Villa Matanza</div>
+        <div class="project-arrow">↗</div>
       </div>
-      <div class="project-arrow">↗</div>
+      <div class="project-desc">Juego de deducción social tipo party para 5 a 12 jugadores desde un celular compartido. Lógica de roles propia inspirada en Mafia/Pueblo, con fases de día y noche y una estética porteña.</div>
+      <div class="project-tags">
+        <span class="tag">Juego</span><span class="tag">Party game</span><span class="tag">Mobile</span>
+      </div>
     </a>
 
   </div>
