@@ -4,12 +4,46 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Nazareno Carreto — Desarrollo web freelance. Sitios a medida para empresas, emprendedores y marcas en el Gran Buenos Aires.">
+<meta name="theme-color" content="#0d0d0b">
 <title>Nazareno Carreto — Desarrollo Web</title>
+<link rel="canonical" href="https://nazarenocarreto.com.ar/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nazareno Carreto — Desarrollo Web">
+<meta property="og:title" content="Nazareno Carreto — Desarrollo Web">
+<meta property="og:description" content="Diseño y desarrollo sitios web a medida para empresas, emprendedores y marcas en el Gran Buenos Aires.">
+<meta property="og:url" content="https://nazarenocarreto.com.ar/">
+<meta property="og:image" content="https://nazarenocarreto.com.ar/img/og-cover.png">
+<meta property="og:locale" content="es_AR">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nazareno Carreto — Desarrollo Web">
+<meta name="twitter:description" content="Diseño y desarrollo sitios web a medida para empresas, emprendedores y marcas en el Gran Buenos Aires.">
+<meta name="twitter:image" content="https://nazarenocarreto.com.ar/img/og-cover.png">
+
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Nazareno Carreto — Desarrollo Web",
+  "url": "https://nazarenocarreto.com.ar/",
+  "image": "https://nazarenocarreto.com.ar/img/og-cover.png",
+  "email": "nazarenocarreto@gmail.com",
+  "areaServed": "Gran Buenos Aires, Argentina",
+  "description": "Desarrollo web freelance: sitios a medida para empresas, emprendedores y marcas en el Gran Buenos Aires.",
+  "founder": {
+    "@type": "Person",
+    "name": "Nazareno Carreto"
+  }
+}
+</script>
+
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -20,7 +54,7 @@
     --border: rgba(255,255,255,0.08);
     --border2: rgba(255,255,255,0.14);
     --text: #f0ede4;
-    --muted: #8a8778;
+    --muted: #9a978a;
     --accent: #c8a96e;
     --serif: 'DM Serif Display', Georgia, serif;
     --sans: 'DM Sans', system-ui, sans-serif;
@@ -35,7 +69,32 @@
     font-size: 16px;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    position: relative;
   }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.035;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .skip-link {
+    position: absolute;
+    top: -3rem; left: 1rem;
+    z-index: 200;
+    background: var(--accent);
+    color: var(--bg);
+    padding: 0.6rem 1.2rem;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: top 0.2s;
+  }
+  .skip-link:focus { top: 1rem; }
 
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -166,11 +225,25 @@
 
   .projects-list { display: flex; flex-direction: column; }
   .project-item {
+    position: relative;
     display: flex; flex-direction: column; gap: 0.6rem;
     padding: 1.75rem 0;
     border-bottom: 0.5px solid var(--border);
     text-decoration: none; color: inherit;
+    overflow: hidden;
   }
+  .project-item::after {
+    content: '';
+    position: absolute;
+    top: 50%; right: -2rem;
+    width: 14rem; height: 14rem;
+    transform: translateY(-50%);
+    background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+  }
+  .project-item:hover::after { opacity: 0.05; }
   .project-item:first-child { border-top: 0.5px solid var(--border); }
   .project-item-header {
     display: grid;
@@ -255,6 +328,16 @@
   .contact-tagline em { font-style: italic; color: var(--accent); }
   .contact-sub { font-size: 0.9rem; color: var(--muted); font-weight: 300; }
   .contact-links { display: flex; flex-direction: column; }
+  .contact-icon {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    border: 0.5px solid var(--border2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; color: var(--accent);
+    flex-shrink: 0; margin-right: 1rem;
+    transition: border-color 0.2s;
+  }
+  .contact-link:hover .contact-icon { border-color: var(--accent); }
   .contact-link {
     display: flex; align-items: center;
     text-decoration: none; color: var(--muted);
@@ -324,6 +407,8 @@
 </head>
 <body>
 
+<a href="#hero" class="skip-link">Saltar al contenido</a>
+
 <nav>
   <a href="#hero" class="nav-logo">NC</a>
   <ul class="nav-links" id="nav-menu">
@@ -332,7 +417,7 @@
     <li><a href="#servicios" onclick="closeMenu()">Servicios</a></li>
     <li><a href="#contacto" onclick="closeMenu()">Contacto</a></li>
   </ul>
-  <button class="nav-toggle" id="nav-toggle" aria-label="Menú" onclick="toggleMenu()">
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menú" aria-expanded="false" aria-controls="nav-menu" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -352,8 +437,8 @@
   <h2>El sitio que<br>tu negocio necesita.</h2>
   <div class="about-grid">
     <div class="about-text">
-      <p style="margin-bottom:1.2rem;">Soy Nazareno, desarrollador web freelance con base en el Gran Buenos Aires. Me especializo en sitios para <strong>empresas, emprendedores y marcas</strong> que necesitan presencia digital bien hecha, sin pagar precios de agencia.</p>
-      <p>Trabajo en función de lo que cada cliente necesita: desde el diseño hasta el contenido, el objetivo es que el sitio <strong>encaje con lo que el negocio es y comunica</strong>.</p>
+      <p style="margin-bottom:1.2rem;">Soy Nazareno, desarrollador web freelance con base en el Gran Buenos Aires. Diseño y armo sitios para <strong>empresas, emprendedores y marcas</strong> que necesitan presencia digital prolija, sin depender de plantillas ni pagar precios de agencia.</p>
+      <p>Cada proyecto arranca de cero: converso con el cliente, entiendo qué necesita comunicar, y armo el sitio <strong>a partir de eso — no al revés</strong>.</p>
     </div>
     <div class="about-divider"></div>
     <div class="about-highlights">
@@ -362,8 +447,8 @@
         <div class="highlight-sub">Sin plantillas genéricas. Cada proyecto parte de la identidad del cliente.</div>
       </div>
       <div class="highlight-item">
-        <div class="highlight-title">HTML · CSS · JavaScript</div>
-        <div class="highlight-sub">Stack liviano, rápido y fácil de mantener. Sin dependencias innecesarias.</div>
+        <div class="highlight-title">Precios accesibles</div>
+        <div class="highlight-sub">Sin tarifas de agencia. Presupuesto según alcance, ajustado a lo que necesita cada proyecto.</div>
       </div>
       <div class="highlight-item">
         <div class="highlight-title">Entrega lista para usar</div>
@@ -378,26 +463,11 @@
   <h2>Trabajo real,<br>para clientes reales.</h2>
   <div class="projects-list">
 
-    <a class="project-item" href="https://luzzzen.com.ar" target="_blank" rel="noopener">
+    <a class="project-item" href="https://luzzzen.github.io/dinter/index.html" target="_blank" rel="noopener">
       <div class="project-item-header">
         <div class="project-num">01</div>
         <div class="project-logo-wrap">
-          <img src="img/logo-luzzzen.png" alt="Luzzzen Cards">
-        </div>
-        <div class="project-name">Luzzzen Cards</div>
-        <div class="project-arrow">↗</div>
-      </div>
-      <div class="project-desc">Catálogo de cartas coleccionables japonesas y chinas con stock actualizable. Los productos llevan directo a WhatsApp para cerrar la venta, sin intermediarios ni plataformas de pago externas.</div>
-      <div class="project-tags">
-        <span class="tag">E-commerce</span><span class="tag">Catálogo</span><span class="tag">WhatsApp</span>
-      </div>
-    </a>
-
-    <a class="project-item" href="https://luzzzen.github.io/dinter/index.html" target="_blank" rel="noopener">
-      <div class="project-item-header">
-        <div class="project-num">02</div>
-        <div class="project-logo-wrap">
-          <img src="img/logo-dinter.png" alt="Dinter">
+          <img src="img/logo-dinter.png" alt="Dinter" loading="lazy">
         </div>
         <div class="project-name">Dinter</div>
         <div class="project-arrow">↗</div>
@@ -408,11 +478,26 @@
       </div>
     </a>
 
+    <a class="project-item" href="https://luzzzen.com.ar" target="_blank" rel="noopener">
+      <div class="project-item-header">
+        <div class="project-num">02</div>
+        <div class="project-logo-wrap">
+          <img src="img/logo-luzzzen.png" alt="Luzzzen Cards" loading="lazy">
+        </div>
+        <div class="project-name">Luzzzen Cards</div>
+        <div class="project-arrow">↗</div>
+      </div>
+      <div class="project-desc">Catálogo de cartas coleccionables japonesas y chinas con stock actualizable. Los productos llevan directo a WhatsApp para cerrar la venta, sin intermediarios ni plataformas de pago externas.</div>
+      <div class="project-tags">
+        <span class="tag">E-commerce</span><span class="tag">Catálogo</span><span class="tag">WhatsApp</span>
+      </div>
+    </a>
+
     <a class="project-item" href="https://luzzzen.github.io/mystic-sunlight/index.html" target="_blank" rel="noopener">
       <div class="project-item-header">
         <div class="project-num">03</div>
         <div class="project-logo-wrap">
-          <img src="img/logo-mystic.png" alt="Mystic Sunlight">
+          <img src="img/logo-mystic.png" alt="Mystic Sunlight" loading="lazy">
         </div>
         <div class="project-name">Mystic Sunlight</div>
         <div class="project-arrow">↗</div>
@@ -420,21 +505,6 @@
       <div class="project-desc">Sitio para un emprendimiento de servicios de tarot: sesiones, oráculos y consultas personalizadas. Con espacio para ampliar, ya que próximamente incorporará una tienda con el mismo sistema de catálogo y venta por WhatsApp que el de Luzzzen Cards.</div>
       <div class="project-tags">
         <span class="tag">Emprendimiento</span><span class="tag">Servicios</span><span class="tag">Tienda próxima</span>
-      </div>
-    </a>
-
-    <a class="project-item" href="https://luzzzen.github.io/el-asesino-de-villa-matanza/index.html" target="_blank" rel="noopener">
-      <div class="project-item-header">
-        <div class="project-num">04</div>
-        <div class="project-logo-wrap">
-          <img src="img/logo-asesino.png" alt="El Asesino de Villa Matanza">
-        </div>
-        <div class="project-name">El Asesino de Villa Matanza</div>
-        <div class="project-arrow">↗</div>
-      </div>
-      <div class="project-desc">Juego de deducción social tipo party para 5 a 12 jugadores desde un celular compartido. Lógica de roles propia inspirada en Mafia/Pueblo, con fases de día y noche y una estética porteña.</div>
-      <div class="project-tags">
-        <span class="tag">Juego</span><span class="tag">Party game</span><span class="tag">Mobile</span>
       </div>
     </a>
 
@@ -488,12 +558,14 @@
     <div class="contact-divider"></div>
     <div class="contact-links">
       <a class="contact-link" href="mailto:nazarenocarreto@gmail.com">
+        <div class="contact-icon" aria-hidden="true">✉</div>
         <div>
           <span class="contact-link-label">Email</span>
           <span class="contact-link-val">nazarenocarreto@gmail.com</span>
         </div>
       </a>
       <a class="contact-link" href="https://wa.me/5491125608635" target="_blank" rel="noopener">
+        <div class="contact-icon" aria-hidden="true">↗</div>
         <div>
           <span class="contact-link-label">WhatsApp</span>
           <span class="contact-link-val">+54 9 11 2560 8635</span>
@@ -510,16 +582,20 @@
 
 <script>
   function toggleMenu() {
-    document.getElementById('nav-menu').classList.toggle('open');
+    const menu = document.getElementById('nav-menu');
+    const toggle = document.getElementById('nav-toggle');
+    const isOpen = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
   }
   function closeMenu() {
     document.getElementById('nav-menu').classList.remove('open');
+    document.getElementById('nav-toggle').setAttribute('aria-expanded', 'false');
   }
   document.addEventListener('click', function(e) {
     const menu = document.getElementById('nav-menu');
     const toggle = document.getElementById('nav-toggle');
     if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-      menu.classList.remove('open');
+      closeMenu();
     }
   });
 </script>
