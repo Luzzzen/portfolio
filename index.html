@@ -1,609 +1,375 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR" data-theme="pop">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Nazareno Carreto — Desarrollo web freelance. Sitios a medida para empresas, emprendedores y marcas en el Gran Buenos Aires.">
-<meta name="theme-color" content="#0d0d0b">
-<title>Nazareno Carreto — Desarrollo Web</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Nazareno Carreto · Desarrollo web a medida en Buenos Aires</title>
+<meta name="description" content="Desarrollo web freelance en el Gran Buenos Aires: sitios a medida, tiendas con pedidos por WhatsApp y catálogos para empresas, emprendimientos y marcas.">
+<meta name="theme-color" content="#FFE14D">
 <link rel="canonical" href="https://nazarenocarreto.com.ar/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Nazareno Carreto">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Nazareno Carreto — Desarrollo Web">
 <meta property="og:title" content="Nazareno Carreto — Desarrollo Web">
-<meta property="og:description" content="Diseño y desarrollo sitios web a medida para empresas, emprendedores y marcas en el Gran Buenos Aires.">
+<meta property="og:description" content="Sitios web a medida para empresas, emprendimientos y marcas del Gran Buenos Aires.">
 <meta property="og:url" content="https://nazarenocarreto.com.ar/">
 <meta property="og:image" content="https://nazarenocarreto.com.ar/img/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Nazareno Carreto, desarrollo web en el Gran Buenos Aires">
 <meta property="og:locale" content="es_AR">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Nazareno Carreto — Desarrollo Web">
-<meta name="twitter:description" content="Diseño y desarrollo sitios web a medida para empresas, emprendedores y marcas en el Gran Buenos Aires.">
+<meta name="twitter:description" content="Sitios web a medida para empresas, emprendimientos y marcas del Gran Buenos Aires.">
 <meta name="twitter:image" content="https://nazarenocarreto.com.ar/img/og-cover.png">
+<meta name="twitter:image:alt" content="Nazareno Carreto, desarrollo web en el Gran Buenos Aires">
 
 <link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="icon" type="image/png" href="favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+<!-- Aplica el tema guardado antes de pintar, para que no haya parpadeo -->
+<script src="js/theme-init.js"></script>
+
+<link rel="preload" href="fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Nazareno Carreto — Desarrollo Web",
-  "url": "https://nazarenocarreto.com.ar/",
-  "image": "https://nazarenocarreto.com.ar/img/og-cover.png",
-  "email": "nazarenocarreto@gmail.com",
-  "areaServed": "Gran Buenos Aires, Argentina",
-  "description": "Desarrollo web freelance: sitios a medida para empresas, emprendedores y marcas en el Gran Buenos Aires.",
-  "founder": {
-    "@type": "Person",
-    "name": "Nazareno Carreto"
-  }
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://nazarenocarreto.com.ar/#website",
+      "url": "https://nazarenocarreto.com.ar/",
+      "name": "Nazareno Carreto · Desarrollo web",
+      "inLanguage": "es-AR",
+      "publisher": { "@id": "https://nazarenocarreto.com.ar/#persona" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://nazarenocarreto.com.ar/#persona",
+      "name": "Nazareno Carreto",
+      "jobTitle": "Desarrollador web freelance",
+      "url": "https://nazarenocarreto.com.ar/",
+      "email": "mailto:nazarenocarreto@gmail.com",
+      "sameAs": ["https://www.instagram.com/ncarreto.dev/"],
+      "knowsAbout": ["Desarrollo web", "Diseño web", "Tiendas online", "HTML", "CSS", "JavaScript", "Supabase"]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://nazarenocarreto.com.ar/#servicio",
+      "name": "Nazareno Carreto · Desarrollo web",
+      "url": "https://nazarenocarreto.com.ar/",
+      "image": "https://nazarenocarreto.com.ar/img/og-cover.png",
+      "logo": "https://nazarenocarreto.com.ar/img/apple-touch-icon.png",
+      "email": "nazarenocarreto@gmail.com",
+      "telephone": "+5491125608635",
+      "description": "Desarrollo web freelance: sitios a medida, tiendas con pedidos por WhatsApp y catálogos para empresas, emprendimientos y marcas.",
+      "areaServed": { "@type": "AdministrativeArea", "name": "Gran Buenos Aires, Argentina" },
+      "founder": { "@id": "https://nazarenocarreto.com.ar/#persona" },
+      "sameAs": ["https://www.instagram.com/ncarreto.dev/"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sitio institucional" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tienda online con pedidos por WhatsApp" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sitio para emprendimientos" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Landing page" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mantenimiento de sitios web" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dominio y publicación" } }
+        ]
+      }
+    },
+    {
+      "@type": "ItemList",
+      "name": "Proyectos",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "item": { "@type": "CreativeWork", "name": "Dinter", "url": "https://luzzzen.github.io/dinter/index.html", "creator": { "@id": "https://nazarenocarreto.com.ar/#persona" } } },
+        { "@type": "ListItem", "position": 2, "item": { "@type": "CreativeWork", "name": "Juli Noguera Pastelería", "url": "https://julinoguerapasteleria.com.ar/", "creator": { "@id": "https://nazarenocarreto.com.ar/#persona" } } },
+        { "@type": "ListItem", "position": 3, "item": { "@type": "CreativeWork", "name": "Luzzzen Cards", "url": "https://luzzzen.com.ar/", "creator": { "@id": "https://nazarenocarreto.com.ar/#persona" } } },
+        { "@type": "ListItem", "position": 4, "item": { "@type": "CreativeWork", "name": "Mystic Sunlight", "url": "https://luzzzen.github.io/mystic-sunlight/index.html", "creator": { "@id": "https://nazarenocarreto.com.ar/#persona" } } }
+      ]
+    }
+  ]
 }
 </script>
-
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --bg: #0d0d0b;
-    --bg2: #141410;
-    --bg3: #1c1c17;
-    --border: rgba(255,255,255,0.08);
-    --border2: rgba(255,255,255,0.14);
-    --text: #f0ede4;
-    --muted: #9a978a;
-    --accent: #c8a96e;
-    --serif: 'DM Serif Display', Georgia, serif;
-    --sans: 'DM Sans', system-ui, sans-serif;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--sans);
-    font-size: 16px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    position: relative;
-  }
-
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    opacity: 0.035;
-    mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-
-  .skip-link {
-    position: absolute;
-    top: -3rem; left: 1rem;
-    z-index: 200;
-    background: var(--accent);
-    color: var(--bg);
-    padding: 0.6rem 1.2rem;
-    text-decoration: none;
-    font-size: 0.85rem;
-    transition: top 0.2s;
-  }
-  .skip-link:focus { top: 1rem; }
-
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 1.25rem 3rem;
-    background: rgba(13,13,11,0.88);
-    backdrop-filter: blur(12px);
-    border-bottom: 0.5px solid var(--border);
-  }
-  .nav-logo {
-    font-family: var(--serif);
-    font-size: 1.1rem;
-    color: var(--accent);
-    text-decoration: none;
-  }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 0.85rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--text); }
-  .nav-toggle {
-    display: none;
-    flex-direction: column; gap: 5px; cursor: pointer;
-    background: none; border: none; padding: 4px;
-  }
-  .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--muted); }
-
-  section { padding: 6rem 3rem; max-width: 900px; margin: 0 auto; }
-
-  #hero {
-    min-height: 100vh;
-    display: flex; flex-direction: column; justify-content: center;
-    padding-top: 8rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-eyebrow {
-    font-size: 0.8rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1.5rem;
-    display: flex; align-items: center; gap: 0.75rem;
-  }
-  .hero-eyebrow::before {
-    content: ''; display: inline-block;
-    width: 2rem; height: 1px; background: var(--accent);
-  }
-  h1.hero-title {
-    font-family: var(--serif);
-    font-size: clamp(3rem, 7.5vw, 5.5rem);
-    line-height: 1.05;
-    color: var(--text);
-    margin-bottom: 1.5rem;
-  }
-  h1.hero-title em { font-style: italic; color: var(--accent); }
-  .hero-sub {
-    font-size: 1.1rem;
-    color: var(--muted);
-    max-width: 480px;
-    line-height: 1.7;
-    margin-bottom: 3rem;
-    font-weight: 300;
-  }
-  .hero-cta {
-    display: inline-flex; align-items: center;
-    padding: 0.85rem 2rem;
-    background: transparent;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    text-decoration: none;
-    font-size: 0.85rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    transition: background 0.2s, color 0.2s;
-    width: fit-content;
-  }
-  .hero-cta:hover { background: var(--accent); color: var(--bg); }
-  .hero-deco {
-    position: absolute; right: 0; top: 50%;
-    transform: translateY(-50%);
-    font-family: var(--serif);
-    font-size: clamp(10rem, 20vw, 20rem);
-    color: rgba(200,169,110,0.04);
-    pointer-events: none; user-select: none;
-    line-height: 1; overflow: hidden;
-    white-space: nowrap;
-    clip-path: inset(0 0 0 0);
-  }
-
-  .section-label {
-    font-size: 0.75rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 0.75rem;
-    display: flex; align-items: center; gap: 0.75rem;
-  }
-  .section-label::before {
-    content: ''; display: inline-block;
-    width: 1.5rem; height: 1px; background: var(--accent);
-  }
-  h2 {
-    font-family: var(--serif);
-    font-size: clamp(2rem, 5vw, 3rem);
-    line-height: 1.1;
-    color: var(--text);
-    margin-bottom: 3rem;
-  }
-
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1px 1fr;
-    gap: 3rem; align-items: start;
-  }
-  .about-divider { background: var(--border); }
-  .about-text { color: var(--muted); font-weight: 300; line-height: 1.8; }
-  .about-text strong { color: var(--text); font-weight: 400; }
-  .about-highlights { display: flex; flex-direction: column; gap: 1.5rem; }
-  .highlight-item { border-left: 1px solid var(--accent); padding-left: 1rem; }
-  .highlight-title { color: var(--text); font-size: 0.95rem; margin-bottom: 0.2rem; }
-  .highlight-sub { color: var(--muted); font-size: 0.82rem; font-weight: 300; }
-
-  .projects-list { display: flex; flex-direction: column; }
-  .project-item {
-    position: relative;
-    display: flex; flex-direction: column; gap: 0.6rem;
-    padding: 1.75rem 0 1.75rem 1.25rem;
-    border-bottom: 0.5px solid var(--border);
-    border-left: 3px solid var(--proj-color, transparent);
-    text-decoration: none; color: inherit;
-    overflow: hidden;
-    transition: border-left-color 0.2s;
-  }
-  .project-item.proj-dinter   { --proj-color: #008779; }
-  .project-item.proj-luzzzen  { --proj-color: #e67f22; }
-  .project-item.proj-mystic   { --proj-color: #c28584; }
-  .project-item::after {
-    content: '';
-    position: absolute;
-    top: 50%; right: -2rem;
-    width: 14rem; height: 14rem;
-    transform: translateY(-50%);
-    background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity 0.35s ease;
-    pointer-events: none;
-  }
-  .project-item:hover::after { opacity: 0.05; }
-  .project-item:first-child { border-top: 0.5px solid var(--border); }
-  .project-item-header {
-    display: grid;
-    grid-template-columns: 3rem 52px 1fr auto;
-    align-items: center;
-    gap: 1.25rem;
-  }
-  .project-num {
-    font-family: var(--serif);
-    font-size: 0.85rem; color: var(--muted);
-    font-style: italic; flex-shrink: 0;
-  }
-  .project-logo-wrap {
-    width: 52px; height: 52px;
-    border-radius: 10px;
-    background: var(--bg3);
-    border: 0.5px solid var(--border2);
-    display: flex; align-items: center; justify-content: center;
-    overflow: hidden; flex-shrink: 0;
-  }
-  .project-logo-wrap img { width: 38px; height: 38px; object-fit: contain; }
-  .project-name {
-    font-family: var(--serif);
-    font-size: 1.4rem; color: var(--text);
-    transition: color 0.2s; line-height: 1.2;
-  }
-  .project-item:hover .project-name { color: var(--accent); }
-  .project-desc {
-    font-size: 0.88rem; color: var(--muted);
-    line-height: 1.6; font-weight: 300;
-    padding-left: calc(3rem + 52px + 2.5rem);
-  }
-  .project-tags {
-    display: flex; gap: 0.4rem; flex-wrap: wrap;
-    padding-left: calc(3rem + 52px + 2.5rem);
-  }
-  .tag {
-    font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
-    padding: 0.18rem 0.55rem;
-    border: 0.5px solid var(--border2); color: var(--muted);
-  }
-  .project-arrow {
-    font-size: 1.1rem; color: var(--muted);
-    transition: color 0.2s, transform 0.2s;
-    flex-shrink: 0;
-  }
-  .project-item:hover .project-arrow { color: var(--accent); transform: translate(3px,-3px); }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 0.5px solid var(--border);
-  }
-  .service-card {
-    background: var(--bg);
-    padding: 1.75rem 1.5rem;
-    transition: background 0.2s;
-  }
-  .service-card:hover { background: var(--bg3); }
-  .service-icon { font-size: 1.4rem; color: var(--accent); margin-bottom: 0.85rem; }
-  .service-title {
-    font-family: var(--serif);
-    font-size: 1.1rem; color: var(--text); margin-bottom: 0.5rem;
-  }
-  .service-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.65; font-weight: 300; }
-
-  .contact-inner {
-    border: 0.5px solid var(--border);
-    padding: 3.5rem;
-    display: grid;
-    grid-template-columns: 1fr 1px 1fr;
-    gap: 3rem; align-items: center;
-  }
-  .contact-divider { background: var(--border); align-self: stretch; }
-  .contact-tagline {
-    font-family: var(--serif);
-    font-size: 1.8rem; line-height: 1.2;
-    color: var(--text); margin-bottom: 0.75rem;
-  }
-  .contact-tagline em { font-style: italic; color: var(--accent); }
-  .contact-sub { font-size: 0.9rem; color: var(--muted); font-weight: 300; }
-  .contact-links { display: flex; flex-direction: column; }
-  .contact-icon {
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    border: 0.5px solid var(--border2);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem; color: var(--accent);
-    flex-shrink: 0; margin-right: 1rem;
-    transition: border-color 0.2s;
-  }
-  .contact-link:hover .contact-icon { border-color: var(--accent); }
-  .contact-link {
-    display: flex; align-items: center;
-    text-decoration: none; color: var(--muted);
-    transition: color 0.2s;
-    padding: 0.9rem 0;
-    border-bottom: 0.5px solid var(--border);
-  }
-  .contact-link:last-child { border-bottom: none; }
-  .contact-link:hover { color: var(--accent); }
-  .contact-link-label {
-    font-size: 0.68rem; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--muted);
-    display: block; margin-bottom: 0.15rem;
-  }
-  .contact-link-val { color: var(--text); font-size: 0.93rem; }
-  .contact-link:hover .contact-link-val { color: var(--accent); }
-
-  footer {
-    border-top: 0.5px solid var(--border);
-    padding: 2rem 3rem;
-    max-width: 900px; margin: 0 auto;
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  .footer-name { font-family: var(--serif); font-size: 0.9rem; color: var(--muted); font-style: italic; }
-  .footer-copy { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.05em; }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .fade-up { animation: fadeUp 0.7s ease forwards; opacity: 0; }
-  .delay-1 { animation-delay: 0.15s; }
-  .delay-2 { animation-delay: 0.3s; }
-  .delay-3 { animation-delay: 0.45s; }
-
-  @media (max-width: 700px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links {
-      display: none; flex-direction: column; gap: 1.2rem;
-      position: absolute; top: 100%; left: 0; right: 0;
-      background: rgba(13,13,11,0.97);
-      padding: 1.5rem; border-bottom: 0.5px solid var(--border);
-    }
-    .nav-links.open { display: flex; }
-    .nav-toggle { display: flex; }
-    section { padding: 3.5rem 1.25rem; }
-    .hero-deco { display: none; }
-    #hero { min-height: 100svh; padding-top: 6rem; padding-bottom: 2rem; justify-content: flex-start; }
-    h1.hero-title { font-size: clamp(2.6rem, 12vw, 4rem); }
-    .hero-sub { font-size: 1rem; margin-bottom: 2rem; }
-    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .about-divider { display: none; }
-    .about-highlights { border-top: 0.5px solid var(--border); padding-top: 2rem; gap: 1.25rem; }
-    .project-item { display: flex; flex-direction: column; gap: 0.65rem; padding: 1.5rem 0 1.5rem 1rem; }
-    .project-item-header { grid-template-columns: 2rem 44px 1fr auto; gap: 0.75rem; }
-    .project-name { font-size: 1.2rem; }
-    .project-desc { padding-left: 0; font-size: 0.85rem; }
-    .project-tags { padding-left: 0; }
-    .services-grid { grid-template-columns: 1fr; }
-    .service-card { padding: 1.5rem 1.25rem; }
-    .contact-inner { grid-template-columns: 1fr; padding: 1.75rem 1.5rem; gap: 1.75rem; }
-    .contact-divider { display: none; }
-    .contact-tagline { font-size: 1.5rem; }
-    footer { padding: 1.5rem; flex-direction: column; gap: 0.35rem; text-align: center; }
-  }
-</style>
 </head>
 <body>
 
-<a href="#hero" class="skip-link">Saltar al contenido</a>
+<a href="#contenido" class="skip-link">Saltar al contenido</a>
 
-<nav>
-  <a href="#hero" class="nav-logo">NC</a>
-  <ul class="nav-links" id="nav-menu">
-    <li><a href="#sobre-mi" onclick="closeMenu()">Sobre mí</a></li>
-    <li><a href="#proyectos" onclick="closeMenu()">Proyectos</a></li>
-    <li><a href="#servicios" onclick="closeMenu()">Servicios</a></li>
-    <li><a href="#contacto" onclick="closeMenu()">Contacto</a></li>
-  </ul>
-  <button class="nav-toggle" id="nav-toggle" aria-label="Menú" aria-expanded="false" aria-controls="nav-menu" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="#inicio" class="monogram" aria-label="Nazareno Carreto, volver al inicio">NC</a>
 
-<section id="hero">
-  <div class="hero-deco" aria-hidden="true">N</div>
-  <div class="hero-eyebrow fade-up">Desarrollo web freelance</div>
-  <h1 class="hero-title fade-up delay-1">Nazareno<br><em>Carreto</em></h1>
-  <p class="hero-sub fade-up delay-2">
-    Diseño y desarrollo sitios web a medida: prolijos, funcionales y con identidad propia. Para empresas, marcas personales y emprendimientos.
-  </p>
-  <a href="#proyectos" class="hero-cta fade-up delay-3">Ver proyectos →</a>
-</section>
-
-<section id="sobre-mi">
-  <div class="section-label">Sobre mí</div>
-  <h2>El sitio que<br>tu negocio necesita.</h2>
-  <div class="about-grid">
-    <div class="about-text">
-      <p style="margin-bottom:1.2rem;">Soy Nazareno, desarrollador web freelance con base en el Gran Buenos Aires. Diseño y armo sitios para <strong>empresas, emprendedores y marcas</strong> que necesitan presencia digital prolija, sin depender de plantillas ni pagar precios de agencia.</p>
-      <p>Cada proyecto arranca de cero: converso con el cliente, entiendo qué necesita comunicar, y armo el sitio <strong>a partir de eso — no al revés</strong>.</p>
-    </div>
-    <div class="about-divider"></div>
-    <div class="about-highlights">
-      <div class="highlight-item">
-        <div class="highlight-title">Diseño a medida</div>
-        <div class="highlight-sub">Sin plantillas genéricas. Cada proyecto parte de la identidad del cliente.</div>
+    <div class="header-right">
+      <div class="theme-switch" role="group" aria-label="Tema de color">
+        <span class="theme-switch-label" aria-hidden="true">Tema</span>
+        <button class="theme-dot" type="button" data-set="pop" aria-pressed="false" aria-label="Tema pop: amarillo y magenta"></button>
+        <button class="theme-dot" type="button" data-set="noche" aria-pressed="false" aria-label="Tema noche: negro, rosa y amarillo"></button>
+        <button class="theme-dot" type="button" data-set="hueso" aria-pressed="false" aria-label="Tema hueso: violeta y naranja"></button>
       </div>
-      <div class="highlight-item">
-        <div class="highlight-title">Precios accesibles</div>
-        <div class="highlight-sub">Sin tarifas de agencia. Presupuesto según alcance, ajustado a lo que necesita cada proyecto.</div>
-      </div>
-      <div class="highlight-item">
-        <div class="highlight-title">Entrega lista para usar</div>
-        <div class="highlight-sub">El sitio sale publicado y funcional, con la posibilidad de agregar un dominio personalizado.</div>
-      </div>
+      <a href="#contacto" class="chip"><span class="chip-text">Escribime</span> <span aria-hidden="true">→</span></a>
     </div>
   </div>
-</section>
+</header>
 
-<section id="proyectos">
-  <div class="section-label">Proyectos</div>
-  <h2>Trabajo real,<br>para clientes reales.</h2>
-  <div class="projects-list">
+<main id="contenido">
 
-    <a class="project-item proj-dinter" href="https://luzzzen.github.io/dinter/index.html" target="_blank" rel="noopener">
-      <div class="project-item-header">
-        <div class="project-num">01</div>
-        <div class="project-logo-wrap">
-          <img src="img/logo-dinter.png" alt="Dinter" loading="lazy">
-        </div>
-        <div class="project-name">Dinter</div>
-        <div class="project-arrow">↗</div>
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="inicio" aria-labelledby="hero-title">
+    <div class="wrap hero-inner">
+      <div>
+        <p class="eyebrow">Desarrollo web · Gran Buenos Aires</p>
+        <h1 class="hero-name" id="hero-title">
+          <span>Nazareno</span>
+          <span class="halftone" data-text="Carreto">Carreto</span>
+        </h1>
+        <p class="hero-sub">Diseño y programo sitios a medida para negocios, marcas y emprendimientos. Que se vean como vos, que anden bien en el celu y que a la gente le den ganas de escribirte.</p>
       </div>
-      <div class="project-desc">Sitio institucional para una empresa manufacturera argentina con más de 30 años de trayectoria en instrumentación de medición y control. Catálogo de productos completo con páginas de detalle individuales.</div>
-      <div class="project-tags">
-        <span class="tag">Institucional</span><span class="tag">Catálogo</span><span class="tag">Industria</span>
-      </div>
-    </a>
 
-    <a class="project-item proj-luzzzen" href="https://luzzzen.com.ar" target="_blank" rel="noopener">
-      <div class="project-item-header">
-        <div class="project-num">02</div>
-        <div class="project-logo-wrap">
-          <img src="img/logo-luzzzen.png" alt="Luzzzen Cards" loading="lazy">
-        </div>
-        <div class="project-name">Luzzzen Cards</div>
-        <div class="project-arrow">↗</div>
-      </div>
-      <div class="project-desc">Catálogo de cartas coleccionables japonesas y chinas con stock actualizable. Los productos llevan directo a WhatsApp para cerrar la venta, sin intermediarios ni plataformas de pago externas.</div>
-      <div class="project-tags">
-        <span class="tag">E-commerce</span><span class="tag">Catálogo</span><span class="tag">WhatsApp</span>
-      </div>
-    </a>
-
-    <a class="project-item proj-mystic" href="https://luzzzen.github.io/mystic-sunlight/index.html" target="_blank" rel="noopener">
-      <div class="project-item-header">
-        <div class="project-num">03</div>
-        <div class="project-logo-wrap">
-          <img src="img/logo-mystic.png" alt="Mystic Sunlight" loading="lazy">
-        </div>
-        <div class="project-name">Mystic Sunlight</div>
-        <div class="project-arrow">↗</div>
-      </div>
-      <div class="project-desc">Sitio para un emprendimiento de servicios de tarot: sesiones, oráculos y consultas personalizadas. Con espacio para ampliar, ya que próximamente incorporará una tienda con el mismo sistema de catálogo y venta por WhatsApp que el de Luzzzen Cards.</div>
-      <div class="project-tags">
-        <span class="tag">Emprendimiento</span><span class="tag">Servicios</span><span class="tag">Tienda próxima</span>
-      </div>
-    </a>
-
-  </div>
-</section>
-
-<section id="servicios">
-  <div class="section-label">Servicios</div>
-  <h2>Qué puedo<br>hacer por vos.</h2>
-  <div class="services-grid">
-    <div class="service-card">
-      <div class="service-icon">◈</div>
-      <div class="service-title">Sitio institucional</div>
-      <div class="service-desc">Para empresas y profesionales que necesitan presencia en la web: quiénes son, qué ofrecen y cómo contactarlos.</div>
+      <nav aria-labelledby="index-title">
+        <p class="hero-index-title" id="index-title">Índice</p>
+        <ol class="hero-index">
+          <li><a href="#proyectos"><span class="idx-num">01</span><span class="idx-label">Proyectos</span><span class="idx-arrow" aria-hidden="true">↗</span></a></li>
+          <li><a href="#sobre-mi"><span class="idx-num">02</span><span class="idx-label">Sobre mí</span><span class="idx-arrow" aria-hidden="true">↗</span></a></li>
+          <li><a href="#servicios"><span class="idx-num">03</span><span class="idx-label">Servicios</span><span class="idx-arrow" aria-hidden="true">↗</span></a></li>
+          <li><a href="#contacto"><span class="idx-num">04</span><span class="idx-label">Contacto</span><span class="idx-arrow" aria-hidden="true">↗</span></a></li>
+        </ol>
+      </nav>
     </div>
-    <div class="service-card">
-      <div class="service-icon">◎</div>
-      <div class="service-title">Catálogo con ventas</div>
-      <div class="service-desc">Productos o servicios con sistema de consulta o pedido vía WhatsApp. Ideal para negocios con catálogo fijo o semi-fijo.</div>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">◇</div>
-      <div class="service-title">Sitio para emprendimientos</div>
-      <div class="service-desc">Presencia digital personalizada para marcas personales, microemprendimientos y proyectos en crecimiento.</div>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">○</div>
-      <div class="service-title">Mantenimiento y actualizaciones</div>
-      <div class="service-desc">Cambios de contenido, productos, precios o secciones en sitios existentes. Por demanda o con servicio mensual.</div>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">△</div>
-      <div class="service-title">Landing page</div>
-      <div class="service-desc">Página de una sola sección para campañas, lanzamientos o promociones. Rápida de armar y fácil de compartir.</div>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">□</div>
-      <div class="service-title">Dominio y publicación</div>
-      <div class="service-desc">Gestión del dominio, hosting y puesta en línea del sitio. El cliente recibe todo listo para usar desde el primer día.</div>
+  </section>
+
+  <!-- ============ CINTA ============ -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Sitios institucionales</span><span>Tiendas con pedidos por WhatsApp</span><span>Catálogos</span><span>Landing pages</span><span>Dominio y publicación</span><span>Mantenimiento</span>
+      <span>Sitios institucionales</span><span>Tiendas con pedidos por WhatsApp</span><span>Catálogos</span><span>Landing pages</span><span>Dominio y publicación</span><span>Mantenimiento</span>
     </div>
   </div>
-</section>
 
-<section id="contacto">
-  <div class="section-label">Contacto</div>
-  <div class="contact-inner">
-    <div class="contact-text">
-      <div class="contact-tagline">¿Tenés un<br>proyecto <em>en mente</em>?</div>
-      <p class="contact-sub">Contame de qué se trata y lo charlamos.</p>
+  <!-- ============ PROYECTOS ============ -->
+  <section class="section" id="proyectos" aria-labelledby="proyectos-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-tag">01 · Proyectos</span>
+        <h2 class="section-title" id="proyectos-title">Cuatro sitios, <em>cuatro identidades.</em></h2>
+        <p class="section-lead">Ninguno se parece al otro, y esa es la idea: cada sitio arranca de quién es el cliente, no de una plantilla.</p>
+      </div>
+
+      <div class="projects">
+
+        <a class="project box p-dinter" href="https://luzzzen.github.io/dinter/index.html" target="_blank" rel="noopener">
+          <div class="project-media">
+            <div class="browser">
+              <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span class="browser-url">dinter · instrumentos de medición</span></div>
+              <img src="img/proyectos/dinter.webp" alt="Captura de la página de inicio de Dinter" width="1200" height="750" loading="lazy">
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-head">
+              <span class="project-num">01</span>
+              <span class="project-logo"><img src="img/logo-dinter.png" alt="" loading="lazy"></span>
+              <h3 class="project-name">Dinter</h3>
+              <span class="project-arrow" aria-hidden="true">↗</span>
+            </div>
+            <p class="project-desc">Sitio institucional para una fábrica argentina de instrumentos de medición y control con más de 30 años. Catálogo completo con fichas por producto y contacto directo para pedir cotización.</p>
+            <ul class="tags" aria-label="Etiquetas"><li>Institucional</li><li>Catálogo</li><li>Industria</li></ul>
+          </div>
+        </a>
+
+        <a class="project box p-juli" href="https://julinoguerapasteleria.com.ar/" target="_blank" rel="noopener">
+          <div class="project-media">
+            <div class="browser">
+              <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span class="browser-url">julinoguerapasteleria.com.ar</span></div>
+              <img src="img/proyectos/juli.webp" alt="Captura de la tienda de Juli Noguera Pastelería" width="1200" height="750" loading="lazy">
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-head">
+              <span class="project-num">02</span>
+              <span class="project-logo"><img src="img/logo-juli.svg" alt="" loading="lazy"></span>
+              <h3 class="project-name">Juli Noguera</h3>
+              <span class="project-arrow" aria-hidden="true">↗</span>
+            </div>
+            <p class="project-desc">Tienda online para una pastelería de San Justo. Elegís las tortas, la fecha y la forma de entrega, y el pedido llega armado al WhatsApp. Pensada primero para el celular, que es desde donde entra casi todo el mundo.</p>
+            <ul class="tags" aria-label="Etiquetas"><li>Tienda</li><li>Pedidos por WhatsApp</li><li>Mobile first</li></ul>
+          </div>
+        </a>
+
+        <a class="project box p-luzzzen" href="https://luzzzen.com.ar" target="_blank" rel="noopener">
+          <div class="project-media">
+            <div class="browser">
+              <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span class="browser-url">luzzzen.com.ar</span></div>
+              <img src="img/proyectos/luzzzen.webp" alt="Captura de la página de inicio de Luzzzen Cards" width="1200" height="750" loading="lazy">
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-head">
+              <span class="project-num">03</span>
+              <span class="project-logo"><img src="img/logo-luzzzen.png" alt="" loading="lazy"></span>
+              <h3 class="project-name">Luzzzen Cards</h3>
+              <span class="project-arrow" aria-hidden="true">↗</span>
+            </div>
+            <p class="project-desc">Tienda de cartas de fútbol coleccionables, con buscador por jugador o equipo, stock actualizable y un carrito que manda el pedido listo por WhatsApp. Sin pasarelas de pago ni comisiones por venta.</p>
+            <ul class="tags" aria-label="Etiquetas"><li>E-commerce</li><li>Buscador</li><li>WhatsApp</li></ul>
+          </div>
+        </a>
+
+        <a class="project box p-mystic" href="https://luzzzen.github.io/mystic-sunlight/index.html" target="_blank" rel="noopener">
+          <div class="project-media">
+            <div class="browser">
+              <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span class="browser-url">mystic sunlight · tarot y esoterismo</span></div>
+              <img src="img/proyectos/mystic.webp" alt="Captura de la página de inicio de Mystic Sunlight" width="1200" height="750" loading="lazy">
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-head">
+              <span class="project-num">04</span>
+              <span class="project-logo"><img src="img/logo-mystic.png" alt="" loading="lazy"></span>
+              <h3 class="project-name">Mystic Sunlight</h3>
+              <span class="project-arrow" aria-hidden="true">↗</span>
+            </div>
+            <p class="project-desc">Sitio para un emprendimiento de tarot y rituales: lecturas, oráculos, turnos coordinados por WhatsApp y una tienda de productos esotéricos. Estética mística, sin caer en el cliché.</p>
+            <ul class="tags" aria-label="Etiquetas"><li>Emprendimiento</li><li>Servicios</li><li>Tienda</li></ul>
+          </div>
+        </a>
+
+      </div>
     </div>
-    <div class="contact-divider"></div>
-    <div class="contact-links">
-      <a class="contact-link" href="mailto:nazarenocarreto@gmail.com">
-        <div class="contact-icon" aria-hidden="true">✉</div>
+  </section>
+
+  <!-- ============ SOBRE MÍ ============ -->
+  <section class="section section--tight" id="sobre-mi" aria-labelledby="sobre-title">
+    <div class="wrap about">
+      <div class="about-text">
+        <div class="section-head section-head--compact">
+          <span class="section-tag">02 · Sobre mí</span>
+          <h2 class="section-title" id="sobre-title">Hola, soy <em>Naza.</em></h2>
+        </div>
+        <p>Diseño y programo sitios web desde el Gran Buenos Aires. Trabajo con empresas, emprendimientos y marcas que necesitan algo propio: <strong>ni una plantilla con el logo cambiado, ni un presupuesto de agencia.</strong></p>
+        <p>Cada proyecto arranca con una charla. Primero entiendo qué vendés, a quién y cómo te gusta mostrarte, y recién después abro el editor. Hablás directo conmigo de punta a punta, sin intermediarios.</p>
+      </div>
+
+      <div class="steps box">
+        <p class="steps-title">Cómo trabajo</p>
+        <ol>
+          <li>
+            <span class="step-n" aria-hidden="true">1</span>
+            <div><h3>Charlamos</h3><p>Me contás qué necesitás y te paso un presupuesto claro, sin letra chica.</p></div>
+          </li>
+          <li>
+            <span class="step-n" aria-hidden="true">2</span>
+            <div><h3>Diseño y desarrollo</h3><p>Vas viendo avances y opinás en el camino, no solo al final.</p></div>
+          </li>
+          <li>
+            <span class="step-n" aria-hidden="true">3</span>
+            <div><h3>Publicamos</h3><p>Te entrego el sitio online, con dominio propio si querés, y te explico cómo se usa.</p></div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICIOS ============ -->
+  <section class="section section--tight" id="servicios" aria-labelledby="servicios-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-tag">03 · Servicios</span>
+        <h2 class="section-title" id="servicios-title">Qué puedo <em>hacer por vos.</em></h2>
+      </div>
+
+      <ul class="services">
+        <li class="service box">
+          <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+          <h3>Sitio institucional</h3>
+          <p>Quiénes son, qué hacen y cómo contactarlos. Para empresas y profesionales que necesitan presencia seria en la web.</p>
+        </li>
+        <li class="service box">
+          <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></span>
+          <h3>Tienda con pedidos por WhatsApp</h3>
+          <p>Catálogo con carrito que arma el pedido y te lo manda listo al WhatsApp. Sin comisiones por venta.</p>
+        </li>
+        <li class="service box">
+          <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></svg></span>
+          <h3>Sitio para emprendimientos</h3>
+          <p>Presencia propia para marcas personales y proyectos que están creciendo y ya no entran en un perfil de Instagram.</p>
+        </li>
+        <li class="service box">
+          <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4a1 1 0 0 0 1 1h2l5 4V5L7 9H5a1 1 0 0 0-1 1z"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/></svg></span>
+          <h3>Landing page</h3>
+          <p>Una sola página para un lanzamiento, una campaña o una promo. Rápida de armar y fácil de compartir.</p>
+        </li>
+        <li class="service box">
+          <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L4 16.8V20h3.2l5.3-5.3a4 4 0 0 0 5.2-5.4l-2.6 2.6-2.4-.5-.5-2.4z"/></svg></span>
+          <h3>Mantenimiento</h3>
+          <p>Cambios de textos, productos, precios o secciones en sitios que ya existen. Por pedido o con abono mensual.</p>
+        </li>
+        <li class="service box">
+          <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
+          <h3>Dominio y publicación</h3>
+          <p>Me encargo del dominio, el hosting y la puesta online. Recibís todo funcionando desde el primer día.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="cubes" aria-hidden="true"></div>
+
+  <!-- ============ CONTACTO ============ -->
+  <section class="contact-section" id="contacto" aria-labelledby="contacto-title">
+    <div class="wrap">
+      <div class="contact box">
         <div>
-          <span class="contact-link-label">Email</span>
-          <span class="contact-link-val">nazarenocarreto@gmail.com</span>
+          <span class="section-tag">04 · Contacto</span>
+          <h2 class="contact-title" id="contacto-title">¿Tenés un proyecto en mente?</h2>
+          <p class="contact-sub">Contame de qué se trata y lo charlamos. Sin compromiso.</p>
         </div>
-      </a>
-      <a class="contact-link" href="https://wa.me/5491125608635" target="_blank" rel="noopener">
-        <div class="contact-icon" aria-hidden="true">↗</div>
-        <div>
-          <span class="contact-link-label">WhatsApp</span>
-          <span class="contact-link-val">+54 9 11 2560 8635</span>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
 
-<footer>
-  <span class="footer-name">Nazareno Carreto</span>
-  <span class="footer-copy">© 2025 — Desarrollo web freelance</span>
+        <ul class="contact-links">
+          <li>
+            <a class="contact-link" href="https://wa.me/5491125608635" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.4-4.2A8 8 0 1 1 8.4 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 1a3.5 3.5 0 0 1-2-2l1-1-1-2z"/></svg>
+              <span><span class="contact-label">WhatsApp</span><span class="contact-value">+54 9 11 2560 8635</span></span>
+              <span class="go" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a class="contact-link" href="https://www.instagram.com/ncarreto.dev/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
+              <span><span class="contact-label">Instagram</span><span class="contact-value">@ncarreto.dev</span></span>
+              <span class="go" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a class="contact-link" href="mailto:nazarenocarreto@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+              <span><span class="contact-label">Email</span><span class="contact-value">nazarenocarreto@gmail.com</span></span>
+              <span class="go" aria-hidden="true">↗</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span>Nazareno Carreto · Desarrollo web</span>
+    <span>Hecho a mano, sin plantillas · © <span id="year">2026</span></span>
+  </div>
 </footer>
 
-<script>
-  function toggleMenu() {
-    const menu = document.getElementById('nav-menu');
-    const toggle = document.getElementById('nav-toggle');
-    const isOpen = menu.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen);
-  }
-  function closeMenu() {
-    document.getElementById('nav-menu').classList.remove('open');
-    document.getElementById('nav-toggle').setAttribute('aria-expanded', 'false');
-  }
-  document.addEventListener('click', function(e) {
-    const menu = document.getElementById('nav-menu');
-    const toggle = document.getElementById('nav-toggle');
-    if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-      closeMenu();
-    }
-  });
-</script>
+<script src="js/main.js" defer></script>
 
 </body>
 </html>
