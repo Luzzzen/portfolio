@@ -47,6 +47,7 @@
   --cube-1: #E6248D;
   --cube-2: #FFE14D;
   --cube-3: #141821;
+  --texture-dot: rgba(20, 24, 33, .15);
   color-scheme: light;
 }
 
@@ -70,6 +71,7 @@
   --cube-1: #FF2E88;
   --cube-2: #FFD60A;
   --cube-3: #2A2A2A;
+  --texture-dot: rgba(244, 239, 228, .10);
   color-scheme: dark;
 }
 
@@ -93,6 +95,7 @@
   --cube-1: #5B3BFF;
   --cube-2: #FF6A13;
   --cube-3: #16121F;
+  --texture-dot: rgba(22, 18, 31, .14);
   color-scheme: light;
 }
 
@@ -116,7 +119,10 @@
 html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 1rem); }
 
 body {
-  background: var(--bg);
+  background-color: var(--bg);
+  /* Textura: grilla de puntos tenue. El hero, la cinta y el contacto tienen fondo propio y la tapan. */
+  background-image: radial-gradient(circle, var(--texture-dot) 1.3px, transparent 1.6px);
+  background-size: 18px 18px;
   color: var(--ink);
   font-family: var(--font-body);
   font-size: 1.0625rem;
