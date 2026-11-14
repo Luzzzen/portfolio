@@ -107,6 +107,7 @@
   --maxw: 1180px;
   --pad-x: clamp(1.25rem, 4vw, 3rem);
   --header-h: 72px;
+  --ticker-h: 60px;   /* alto de la cinta animada */
 }
 
 /* ---------- Base ---------- */
@@ -232,7 +233,8 @@ a { color: inherit; }
 }
 .hero-inner {
   position: relative; z-index: 1;
-  min-height: calc(100svh - var(--header-h));
+  /* El hero deja lugar para que la cinta se vea al abrir la página */
+  min-height: calc(100svh - var(--header-h) - var(--ticker-h));
   display: grid; grid-template-columns: 1.35fr 1fr;
   align-items: center; gap: clamp(2rem, 5vw, 5rem);
   padding-top: clamp(3rem, 7vh, 5rem); padding-bottom: clamp(3rem, 7vh, 5rem);
@@ -330,7 +332,8 @@ a { color: inherit; }
 }
 .ticker-track span {
   display: inline-flex; align-items: center; gap: 1.6rem;
-  padding: .9rem 0 .9rem 1.6rem;
+  height: calc(var(--ticker-h) - var(--bw));
+  padding: 0 0 0 1.6rem;
   font-family: var(--font-display); font-weight: 700; font-stretch: 85%;
   font-size: 1.35rem; letter-spacing: -.01em;
 }

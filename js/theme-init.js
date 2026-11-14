@@ -6,7 +6,6 @@
   try {
     var saved = localStorage.getItem('nc-theme');
     if (saved && Object.prototype.hasOwnProperty.call(colors, saved)) t = saved;
-    else if (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) t = 'noche';
   } catch (e) {}
   document.documentElement.setAttribute('data-theme', t);
   var meta = document.querySelector('meta[name="theme-color"]');
