@@ -673,9 +673,12 @@ a { color: inherit; }
   .hero-name { font-size: clamp(3.6rem, 19vw, 6rem); }
   .hero::after { width: 90vw; right: -30%; bottom: -15%; }
   .projects { grid-template-columns: 1fr; }
-  .projects-cta { border-top: 0; padding-top: 0; justify-content: center; }
-  .projects-cta-text { display: none; }
-  .price-sticker { margin: 1.25rem 0 .5rem; transform: rotate(-5deg); }
+  .projects-cta { flex-direction: column; align-items: center; gap: 1.75rem; text-align: center; }
+  .projects-cta-text { flex: none; align-items: center; }
+  .projects-cta-text .chip { display: none; } /* en celu el sticker ya es el botón */
+  .projects-cta-title { font-size: clamp(2.1rem, 10vw, 2.6rem); }
+  .projects-cta-title em { display: block; } /* "el tuyo." siempre en su propia línea */
+  .price-sticker { margin: .75rem 0 .5rem; transform: rotate(-5deg); }
   .services { grid-template-columns: 1fr; }
   .project-name { font-size: 1.5rem; }
   .footer-inner { flex-direction: column; text-align: center; }
