@@ -48,6 +48,7 @@
   --cube-2: #FFE14D;
   --cube-3: #141821;
   --texture-dot: rgba(20, 24, 33, .15);
+  --sticker-amount: #FFE14D;
   color-scheme: light;
 }
 
@@ -72,6 +73,7 @@
   --cube-2: #FFD60A;
   --cube-3: #2A2A2A;
   --texture-dot: rgba(244, 239, 228, .10);
+  --sticker-amount: #121212;
   color-scheme: dark;
 }
 
@@ -96,6 +98,7 @@
   --cube-2: #FF6A13;
   --cube-3: #16121F;
   --texture-dot: rgba(22, 18, 31, .14);
+  --sticker-amount: #FFFFFF;
   color-scheme: light;
 }
 
@@ -457,6 +460,57 @@ a { color: inherit; }
   padding: .2rem .65rem;
 }
 
+/* Cierre de proyectos: frase + sticker con el precio de entrada */
+.projects-cta {
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  padding-top: clamp(2rem, 4vw, 2.75rem);
+  border-top: var(--bw) solid var(--ink);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 2.5rem;
+}
+.projects-cta-text {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 1.25rem;
+  flex: 1 1 26rem; min-width: 0;
+}
+.projects-cta-title {
+  font-family: var(--font-display); font-weight: 800; font-stretch: 80%;
+  font-size: clamp(2rem, 4.5vw, 3.4rem); line-height: .95; letter-spacing: -.03em;
+}
+.projects-cta-title em { font-style: normal; color: var(--a1); }
+.price-sticker {
+  position: relative;
+  display: inline-flex; flex-direction: column; align-items: center;
+  margin: 1.25rem 1.5rem .5rem 0;
+  padding: 1.6rem 2rem 1.2rem;
+  background: var(--a1); color: var(--on-a1);
+  border: var(--bw) solid var(--ink); border-radius: var(--radius);
+  box-shadow: var(--sh) var(--sh) 0 var(--shadow);
+  text-decoration: none; text-align: center;
+  transform: rotate(-6deg);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.price-sticker:hover,
+.price-sticker:focus-visible {
+  transform: rotate(-3deg) translate(-3px, -3px);
+  box-shadow: calc(var(--sh) + 4px) calc(var(--sh) + 4px) 0 var(--shadow);
+}
+/* La etiqueta va "pegada" arriba, como cinta */
+.price-sticker-label {
+  position: absolute; top: -.95rem; left: 50%;
+  transform: translateX(-50%) rotate(4deg);
+  white-space: nowrap;
+  font-family: var(--font-mono); font-size: .8rem; font-weight: 500;
+  letter-spacing: .1em; text-transform: uppercase;
+  background: var(--a2); color: var(--on-a2);
+  border: var(--bw) solid var(--ink); border-radius: 6px;
+  padding: .2rem .65rem;
+}
+.price-sticker-amount {
+  font-family: var(--font-display); font-weight: 800; font-stretch: 80%;
+  font-size: clamp(2.6rem, 5vw, 3.6rem); line-height: 1; letter-spacing: -.03em;
+  color: var(--sticker-amount);
+}
+
 /* ---------- Sobre mí ---------- */
 .about {
   display: grid; grid-template-columns: 1.1fr .9fr;
@@ -619,6 +673,9 @@ a { color: inherit; }
   .hero-name { font-size: clamp(3.6rem, 19vw, 6rem); }
   .hero::after { width: 90vw; right: -30%; bottom: -15%; }
   .projects { grid-template-columns: 1fr; }
+  .projects-cta { border-top: 0; padding-top: 0; justify-content: center; }
+  .projects-cta-text { display: none; }
+  .price-sticker { margin: 1.25rem 0 .5rem; transform: rotate(-5deg); }
   .services { grid-template-columns: 1fr; }
   .project-name { font-size: 1.5rem; }
   .footer-inner { flex-direction: column; text-align: center; }
